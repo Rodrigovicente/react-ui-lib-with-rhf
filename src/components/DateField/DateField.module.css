@@ -1,0 +1,33 @@
+.field {
+	display: inline-block;
+	/* border: solid 1px black; */
+}
+
+.field > span.separator {
+	margin-inline: 0.1rem;
+}
+
+.field > span {
+	display: inline-block;
+	outline: none;
+	padding: 0 0.1rem;
+	border-radius: 0.2rem;
+}
+
+.field > span:focus {
+	background-color: rgba(0, 136, 255, 0.3);
+}
+
+.field > span[aria-valuetext='Empty']:not(:focus) {
+	opacity: 0.5;
+}
+
+.field > span[aria-label='day'] {
+	min-width: 1.1rem;
+}
+.field > span[aria-label='month'] {
+	min-width: 1.1rem;
+}
+.field > span[aria-label='year'] {
+	min-width: 2.3rem;
+}

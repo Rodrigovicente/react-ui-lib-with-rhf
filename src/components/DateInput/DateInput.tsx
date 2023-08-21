@@ -5,10 +5,10 @@ interface IDateInputProps {
 	[index: string]: any
 }
 
-interface IInputValue {
-	raw: string
-	formatted: string
-}
+// interface IInputValue {
+// 	raw: string
+// 	formatted: string
+// }
 
 const dateFormatPattern =
 	/^(dd|mm|yy(yy)?)((-|\/| - | \/ )(?!.*\1)(dd|mm|yy(yy)?))?((-|\/| - | \/ )(?!.*\1)(?!.*\3)(dd|mm|yy(yy)?))?$/i
@@ -60,14 +60,14 @@ const DateInput: React.FC<IDateInputProps> = ({
 			}
 		})
 	}
-	function updateCaretPos(pos: number | null) {
-		setInputState(prev => {
-			return {
-				...prev,
-				caretPos: pos,
-			}
-		})
-	}
+	// function updateCaretPos(pos: number | null) {
+	// 	setInputState(prev => {
+	// 		return {
+	// 			...prev,
+	// 			caretPos: pos,
+	// 		}
+	// 	})
+	// }
 
 	function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
 		const newValue = e.currentTarget.value
@@ -184,6 +184,7 @@ function formatDateString(format: string, value: string): string {
 	return formatted.slice(0, i + separatorCount)
 }
 
+/*
 function fillDateStringSlots(format: string, value: string): string {
 	const i = {
 		day: [format.indexOf('dd'), 2],
@@ -294,7 +295,7 @@ function fillDateStringSlots(format: string, value: string): string {
 			console.log('new', value)
 		}
 	}
-*/
+* /
 
 	let returnValue = format
 
@@ -308,6 +309,7 @@ function fillDateStringSlots(format: string, value: string): string {
 
 	return returnValue
 }
+*/
 
 function validateDateString(format: string, value: string): boolean {
 	if (format.length !== value.length) return false
@@ -440,16 +442,16 @@ function replaceStringAt(str: string, i: number, replacement: string) {
 	)
 }
 
-function insertCharAt(str: string, i: number, insertion: string) {
-	if (
-		typeof insertion !== 'string' ||
-		typeof str !== 'string' ||
-		typeof i !== 'number'
-	)
-		return str
+// function insertCharAt(str: string, i: number, insertion: string) {
+// 	if (
+// 		typeof insertion !== 'string' ||
+// 		typeof str !== 'string' ||
+// 		typeof i !== 'number'
+// 	)
+// 		return str
 
-	return str.slice(0, i) + insertion + str.slice(i + insertion.length - 1)
-}
+// 	return str.slice(0, i) + insertion + str.slice(i + insertion.length - 1)
+// }
 
 function substringTillNonNumerical(str: string, i = 0) {
 	let endIndex = str.substring(i).search(/[^0-9]/)
