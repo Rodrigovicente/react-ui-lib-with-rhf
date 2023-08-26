@@ -1,0 +1,213 @@
+.select {
+	position: relative;
+	width: 13rem;
+	display: flex;
+	align-items: center;
+}
+
+.select > .button {
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	text-align: start;
+	padding: 0.6rem;
+	border-radius: 0.5rem;
+	background-color: hsl(252, 7%, 14%);
+	border: solid 2px hsl(218, 7%, 30%);
+}
+
+.select > .button:focus {
+	outline: none;
+}
+
+.select > .button:focus-visible {
+	outline: solid 1px white;
+	outline-offset: 2px;
+}
+
+.select > .button > .value {
+	flex-grow: 1;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	margin-left: 0.2312rem;
+}
+
+.select > .button > .icon {
+	flex-grow: 0;
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 1.15rem;
+	height: 1.15rem;
+	border-radius: 3px;
+	background-color: blueviolet;
+}
+
+.select.selected > .button > .icon {
+	margin-left: 1rem;
+}
+
+.select > button.reset {
+	position: absolute;
+	right: 2rem;
+	width: 1.35rem;
+	height: 1.35rem;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
+	border: none;
+	color: hsl(205, 6%, 60%);
+}
+
+.select > button.reset:hover {
+	color: white;
+}
+
+.select > button.reset:focus {
+	outline: none;
+}
+
+.select > button.reset:focus-visible {
+	outline: solid 1px white;
+	outline-offset: 2px;
+}
+
+ul.menu {
+	all: unset;
+	display: none;
+	flex-direction: column;
+	gap: 0.1rem;
+	box-sizing: border-box;
+	width: 100%;
+	max-height: 14.7rem;
+	overflow-y: auto;
+	overflow-x: hidden;
+	isolation: isolate;
+	position: absolute;
+	top: 0;
+	/* top: 50%; */
+	/* margin-top: 1.5rem; */
+	/* overflow: hidden; */
+	list-style: none;
+	padding: 0.25rem;
+	outline: solid 1px hsl(0, 0%, 27%);
+	border-radius: 0.5rem;
+	background-image: linear-gradient(
+		hsla(0, 0%, 22%, 0%) 0%,
+		hsla(0, 0%, 22%, 100%) 50%,
+		hsla(0, 0%, 22%, 0%) 100%
+	);
+	background-color: hsla(0, 0%, 22%, 0.4);
+	background-repeat: no-repeat;
+	backdrop-filter: blur(5px);
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+		rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em;
+}
+
+ul.menu.isOpen {
+	display: flex;
+}
+
+.menu > li {
+	position: relative;
+	z-index: 10;
+	padding: 0.2rem 0 0.2rem 0.7rem;
+	margin-bottom: 1px;
+	border-radius: 0.35rem;
+	/* overflow: hidden; */
+	cursor: pointer;
+}
+.menu > li.highlighted {
+	background-color: hsla(0, 0%, 42%, 0.4);
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+		rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+.menu > li > .label {
+	position: relative;
+	box-sizing: border-box;
+	font-weight: 700;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 100%;
+	overflow: hidden;
+}
+
+.menu.hide-sublabel > li > .label {
+	font-weight: 500;
+}
+
+/* .menu > li > .label::after {
+	content: attr(data-label);
+	position: absolute;
+	left: 0;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 100%;
+	overflow: hidden;
+} */
+
+.menu > li:hover > .label:after {
+	overflow: visible;
+}
+
+.menu > li > .sublabel {
+	font-size: 0.75rem;
+	line-height: 0.875rem;
+}
+
+.menu > li.highlighted {
+	/* color: hsl(202, 94%, 52%); */
+}
+
+.menu > li.selected > .label {
+	/* font-weight: 700; */
+	color: hsl(202, 94%, 52%);
+}
+
+/* .menu > li::after {
+	content: '';
+	position: absolute;
+	left: 50%;
+	margin-left: -45%;
+	bottom: -1px;
+	display: block;
+	width: 90%;
+	height: 1px;
+	background-color: rgba(255, 255, 255, 0.05);
+}
+
+.menu > li:last-child:after {
+	content: none;
+} */
+
+/* width */
+.menu::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+.menu::-webkit-scrollbar-track {
+	background-color: transparent;
+	margin-block: 0.5rem;
+}
+
+/* Handle */
+.menu::-webkit-scrollbar-thumb {
+	box-sizing: content-box;
+	background: #555;
+	border-radius: 99px;
+	border: solid 4px hsla(0, 0%, 22%, 100%);
+}
+
+/* Handle on hover */
+.menu::-webkit-scrollbar-thumb:hover {
+	background: #646464;
+}

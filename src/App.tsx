@@ -7,6 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z, object, TypeOf } from 'zod'
 import Checkbox from './components/Checkbox/Checkbox'
 import TextField from './components/TextField/TextField'
+import Select from './components/Select/Select'
 
 function App() {
 	// const [count, setCount] = useState(0)
@@ -94,6 +95,19 @@ function App() {
 						label="teste"
 						// message={{ text: 'teste nisso', type: 'info' }}
 					></TextField>
+					<br></br>
+					<Select
+						items={new Array(15).fill(null).map((_, index) => ({
+							value: index,
+							label: `${Array(index)
+								.fill(null)
+								.map((_, i) => String.fromCharCode(i + 65))
+								.join('')} opção ${index}`,
+						}))}
+						name="nome teste"
+						onChange={v => console.log(v)}
+						hideSublabel
+					/>
 
 					<button type="submit">vai</button>
 				</form>
